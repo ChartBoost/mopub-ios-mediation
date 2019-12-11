@@ -15,7 +15,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NSError (ChartboostErrors)
-+ (NSError *)errorWithCacheEvent:(CHBAdEvent *)event error:(CHBCacheError *)error;
++ (NSError *)errorWithCacheEvent:(CHBCacheEvent *)event error:(CHBCacheError *)error;
 + (NSError *)errorWithShowEvent:(CHBShowEvent *)event error:(CHBShowError *)error;
 + (NSError *)errorWithClickEvent:(CHBClickEvent *)event error:(CHBClickError *)error;
 + (NSError *)errorWithDidFinishHandlingClickEvent:(CHBClickEvent *)event error:(CHBClickError *)error;

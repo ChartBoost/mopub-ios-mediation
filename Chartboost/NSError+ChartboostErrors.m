@@ -18,7 +18,7 @@
 
 @implementation NSError (ChartboostErrors)
 
-+ (NSError *)errorWithCacheEvent:(CHBAdEvent *)event error:(CHBCacheError *)error
++ (NSError *)errorWithCacheEvent:(CHBCacheEvent *)event error:(CHBCacheError *)error
 {
     return [NSError errorWithCode:MOPUBErrorAdapterFailedToLoadAd
              localizedDescription:[NSString stringWithFormat:@"Chartboost adapter failed to load %@ with location %@ and error %@", [self adTypeNameForAd:event.ad], event.ad.location, error.description]];
