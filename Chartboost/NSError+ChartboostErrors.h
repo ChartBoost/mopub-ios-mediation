@@ -6,7 +6,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <Chartboost/CHBAdDelegate.h>
+#if __has_include(<Chartboost/Chartboost+Mediation.h>)
+#import <Chartboost/Chartboost+Mediation.h>
+#else
+#import "Chartboost+Mediation.h"
+#endif
 
 NS_ASSUME_NONNULL_BEGIN
 

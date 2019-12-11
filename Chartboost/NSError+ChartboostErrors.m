@@ -6,7 +6,6 @@
 //
 
 #import "NSError+ChartboostErrors.h"
-#import <Chartboost/Chartboost+Mediation.h>
 
 #if __has_include(<MoPub/MoPub.h>)
 #import <MoPub/MoPub.h>
