@@ -88,9 +88,10 @@
     if (error) {
         NSError *nserror = [NSError errorWithClickEvent:event error:error];
         MPLogAdEvent([MPLogEvent error:nserror message:nil], event.ad.location);
+    } else {
+        [self.delegate bannerCustomEventWillBeginAction:self];
     }
     MPLogAdEvent([MPLogEvent adTappedForAdapter:NSStringFromClass(self.class)], event.ad.location);
-    [self.delegate bannerCustomEventWillBeginAction:self];
     [self.delegate trackClick];
 }
 
