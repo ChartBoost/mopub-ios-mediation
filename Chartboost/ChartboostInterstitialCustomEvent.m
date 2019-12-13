@@ -23,7 +23,12 @@
     location = location.length > 0 ? location : CBLocationDefault;
 
     MPLogAdEvent([MPLogEvent adLoadAttemptForAdapter:NSStringFromClass(self.class) dspCreativeId:nil dspName:nil], location);
-
+    if (self.ad) {
+        MPLogAdEvent([MPLogEvent error:[NSError errorWithCode:MOPUBErrorUnknown
+                                         localizedDescription:@"Chartboost adapter error: requestAdWithSize called twice on the same event."]
+                               message:nil], location);
+    }
+    
     __weak typeof(self) weakSelf = self;
     [ChartboostRouter startWithParameters:info completion:^(BOOL initialized) {
         if (!initialized) {
