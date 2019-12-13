@@ -22,15 +22,13 @@
 
     MPLogAdEvent([MPLogEvent adLoadAttemptForAdapter:NSStringFromClass(self.class) dspCreativeId:nil dspName:nil], location);
     if (self.ad) {
-        MPLogAdEvent([MPLogEvent error:[NSError errorWithCode:MOPUBErrorUnknown
-                                         localizedDescription:@"Chartboost adapter error: requestAdWithSize called twice on the same event."]
-                               message:nil], location);
+        MPLogAdEvent([MPLogEvent error:[NSError adRequestCalledTwiceOnSameEvent] message:nil], location);
     }
     
     __weak typeof(self) weakSelf = self;
     [ChartboostRouter startWithParameters:info completion:^(BOOL initialized) {
         if (!initialized) {
-            NSError *error = [NSError errorWithCode:MOPUBErrorAdapterInvalid localizedDescription:@"Failed to load Chartboost rewarded: sdk initialization failed."];
+            NSError *error = [NSError adRequestFailedDueToSDKStartWithAdOfType:@"rewarded"];
             MPLogAdEvent([MPLogEvent adLoadFailedForAdapter:NSStringFromClass(self.class) error:error], location);
             [self.delegate rewardedVideoDidFailToLoadAdForCustomEvent:self error:error];
             return;

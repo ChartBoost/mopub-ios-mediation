@@ -19,6 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSError *)errorWithShowEvent:(CHBShowEvent *)event error:(CHBShowError *)error;
 + (NSError *)errorWithClickEvent:(CHBClickEvent *)event error:(CHBClickError *)error;
 + (NSError *)errorWithDidFinishHandlingClickEvent:(CHBClickEvent *)event error:(CHBClickError *)error;
++ (NSError *)adRequestCalledTwiceOnSameEvent;
++ (NSError *)adRequestFailedDueToSDKStartWithAdOfType:(NSString *)adType;
 @end
 
 NS_ASSUME_NONNULL_END

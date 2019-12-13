@@ -42,6 +42,18 @@
              localizedDescription:[NSString stringWithFormat:@"Chartboost adapter did finish handling click for %@ with location %@ and error %@", [self adTypeNameForAd:event.ad], event.ad.location, error.description]];
 }
 
++ (NSError *)adRequestCalledTwiceOnSameEvent
+{
+    return [NSError errorWithCode:MOPUBErrorUnknown
+             localizedDescription:@"Chartboost adapter error: requestAdWithSize called twice on the same event."];
+}
+
++ (NSError *)adRequestFailedDueToSDKStartWithAdOfType:(NSString *)adType
+{
+    return [NSError errorWithCode:MOPUBErrorAdapterInvalid
+             localizedDescription:[NSString stringWithFormat:@"Failed to load Chartboost %@: sdk initialization failed.", adType]];
+}
+
 + (NSString *)adTypeNameForAd:(id<CHBAd>)ad
 {
     if ([ad isKindOfClass:CHBInterstitial.class]) {
