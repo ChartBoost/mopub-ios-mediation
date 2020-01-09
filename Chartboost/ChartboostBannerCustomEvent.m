@@ -46,7 +46,7 @@
 
 - (BOOL)enableAutomaticImpressionAndClickTracking
 {
-    return NO;
+    return NO;  // Disabled so we have control over the click tracking behavior
 }
 
 // MARK: - CHBBannerDelegate
@@ -95,7 +95,7 @@
         [self.delegate bannerCustomEventWillBeginAction:self];
     }
     MPLogAdEvent([MPLogEvent adTappedForAdapter:NSStringFromClass(self.class)], event.ad.location);
-    [self.delegate trackClick];
+    [self.delegate trackClick]; // We track the click even if there was an error, since we want to track events like when an ad passes an invalid url
 }
 
 - (void)didFinishHandlingClick:(CHBClickEvent *)event error:(nullable CHBClickError *)error
