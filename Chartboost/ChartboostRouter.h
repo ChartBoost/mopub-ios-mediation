@@ -6,7 +6,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#if __has_include("MoPub.h")
 #import "MPLogging.h"
+#endif
 #if __has_include(<Chartboost/Chartboost+Mediation.h>)
 #import <Chartboost/Chartboost+Mediation.h>
 #else
